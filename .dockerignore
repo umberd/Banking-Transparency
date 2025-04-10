@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+app/__pycache__/
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose*.yml
+
+# Git
+.git
+.gitignore
+.github/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Application specific
+instance/account_data_*.json
+instance/account_ids_*.json
+instance/institutions_*.json
+instance/requisition_map_*.json
+instance/.env
+
+# Don't exclude compiled translations
+!translations/*/LC_MESSAGES/*.mo
+
+# Log files
+*.log
+logs/
+
+# Test files
+.coverage
+htmlcov/
+.pytest_cache/

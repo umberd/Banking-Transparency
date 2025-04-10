@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ _('Home - Account Transparency') }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2 text-center">
+        <h1 class="display-4 mb-4">{{ _('Welcome to the account transparency platform') }}</h1>
+        <p class="lead mb-5">
+            {{ _('This platform allows members of our association to view the status of bank accounts transparently. Log in to access financial information.') }}
+        </p>
+
+        {% if not current_user.is_authenticated %}
+        <div class="d-grid gap-2 col-md-6 mx-auto">
+            <a href="{{ url_for('auth.login') }}" class="btn btn-primary btn-lg">{{ _('Log in') }}</a>
+        </div>
+        {% else %}
+        <div class="d-grid gap-2 col-md-6 mx-auto">
+            <a href="{{ url_for('main.dashboard') }}" class="btn btn-primary btn-lg">{{ _('Go to dashboard') }}</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ _('Transparency') }}</h5>
+                <p class="card-text">{{ _('Access bank account data through secure integration with GoCardless/Nordigen.') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ _('Security') }}</h5>
+                <p class="card-text">{{ _('Data is retrieved directly from your bank via secure protocols compliant with PSD2.') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ _('Non-profit organization') }}</h5>
+                <p class="card-text">{{ _('Discover how the association funds are managed with full transparency.') }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

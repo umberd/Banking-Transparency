@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Transparency Association\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-10 17:00+0000\n"
+"PO-Revision-Date: 2025-04-10 17:00+0000\n"
+"Last-Translator: Translator <translator@example.com>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Account Transparency - Association"
+msgstr "Kontotransparenz - Verein"
+
+msgid "Transparency Association"
+msgstr "Transparenz-Verein"
+
+msgid "Home"
+msgstr "Startseite"
+
+msgid "Dashboard"
+msgstr "Übersicht"
+
+msgid "Connect bank"
+msgstr "Bank verbinden"
+
+msgid "Transparency"
+msgstr "Transparenz"
+
+msgid "Logout"
+msgstr "Abmelden"
+
+msgid "Login"
+msgstr "Anmelden"
+
+msgid "Transparency Association - All rights reserved"
+msgstr "Transparenz-Verein - Alle Rechte vorbehalten"
+
+msgid "Welcome to the Transparency Association"
+msgstr "Willkommen beim Transparenz-Verein"
+
+msgid "Connect your bank accounts"
+msgstr "Verbinden Sie Ihre Bankkonten"
+
+msgid "View your transactions"
+msgstr "Sehen Sie Ihre Transaktionen an"
+
+msgid "Account Balance"
+msgstr "Kontostand"
+
+msgid "Account"
+msgstr "Konto"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Amount"
+msgstr "Betrag"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "No transactions found"
+msgstr "Keine Transaktionen gefunden"
+
+msgid "Select a bank to connect"
+msgstr "Wählen Sie eine Bank zum Verbinden"
+
+msgid "Submit"
+msgstr "Absenden"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Remember me"
+msgstr "Angemeldet bleiben"
+
+msgid "Sign in"
+msgstr "Anmelden"

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ _('Select your bank - Account Transparency') }}{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h1>{{ _('Select your bank') }}</h1>
+        <p class="lead">{{ _('Choose your banking institution to connect and retrieve your account data') }}</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4>{{ _('Available banks') }}</h4>
+                    <a href="{{ url_for('main.dashboard') }}" class="btn btn-secondary btn-sm">{{ _('Back to dashboard') }}</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {% for institution in institutions %}
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                {% if institution.logo %}
+                                <img src="{{ institution.logo }}" alt="{{ institution.name }}" class="img-fluid mb-3" style="max-height: 80px;">
+                                {% else %}
+                                <div class="bg-light p-3 mb-3 d-flex align-items-center justify-content-center" style="height: 80px;">
+                                    <span class="text-muted">{{ institution.name }}</span>
+                                </div>
+                                {% endif %}
+                                <h5 class="card-title">{{ institution.name }}</h5>
+                            </div>
+                            <div class="card-footer bg-white">
+                                <a href="{{ url_for('nordigen.select_bank', institution_id=institution.id) }}" class="btn btn-primary w-100">
+                                    {{ _('Select') }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

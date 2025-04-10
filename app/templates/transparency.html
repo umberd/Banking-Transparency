@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ _('Account Transparency - Association') }}{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h1>{{ _('Account Transparency') }}</h1>
+        <p class="lead">{{ _('View all financial transactions of the association') }}</p>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>{{ _('Accounts Summary') }}</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ _('Number of accounts') }}</h5>
+                                <p class="display-4">{{ number_of_accounts }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ _('Total balance') }}</h5>
+                                <p class="display-4 {% if total_balance > 0 %}text-success{% elif total_balance < 0 %}text-danger{% endif %}">
+                                    {{ total_balance }} €
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ _('Number of transactions') }}</h5>
+                                <p class="display-4">{{ transactions|length }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4>{{ _('All transactions') }}</h4>
+                    <div>
+                        <input type="text" id="transaction-search" class="form-control" placeholder="{{ _('Search for a transaction...') }}">
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                {% if transactions %}
+                <div class="table-responsive">
+                    <table class="table table-hover" id="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>{{ _('Date') }}</th>
+                                <th>{{ _('Account') }}</th>
+                                <th>{{ _('Description') }}</th>
+                                <th>{{ _('Amount') }}</th>
+                                <th>{{ _('Status') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for transaction in transactions %}
+                            <tr class="transaction-row">
+                                <td>{{ transaction.valueDate or transaction.bookingDate or _('Pending') }}</td>
+                                <td>{{ transaction.account_name }}</td>
+                                <td>
+                                    <div>{{ transaction.remittanceInformationUnstructured or transaction.additionalInformation or _('Transaction') }}</div>
+                                    {% if transaction.creditorName or transaction.debtorName %}
+                                    <small class="text-muted">
+                                        {% if transaction.transactionAmount.amount|float > 0 %}
+                                            {{ _('From') }}: {{ transaction.debtorName or _('Unknown') }}
+                                        {% else %}
+                                            {{ _('To') }}: {{ transaction.creditorName or _('Unknown') }}
+                                        {% endif %}
+                                    </small>
+                                    {% endif %}
+                                </td>
+                                <td class="{% if transaction.transactionAmount.amount|float > 0 %}text-success{% else %}text-danger{% endif %}">
+                                    {{ transaction.transactionAmount.amount }} {{ transaction.transactionAmount.currency }}
+                                </td>
+                                <td>
+                                    {% if transaction.status is defined %}
+                                        {% if transaction.status == 'booked' %}
+                                            <span class="badge bg-success">{{ _('Booked') }}</span>
+                                        {% elif transaction.status == 'pending' %}
+                                            <span class="badge bg-warning">{{ _('Pending') }}</span>
+                                        {% endif %}
+                                    {% else %}
+                                        <span class="badge bg-success">{{ _('Booked') }}</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="alert alert-info">
+                    {{ _('No transactions available. Connect a bank account to see transactions.') }}
+                </div>
+                <div class="d-grid gap-2 col-md-6 mx-auto">
+                    <a href="{{ url_for('nordigen.init_nordigen') }}" class="btn btn-primary">{{ _('Connect a bank account') }}</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('transaction-search');
+        const transactionRows = document.querySelectorAll('.transaction-row');
+        
+        if (searchInput) {
+            searchInput.addEventListener('keyup', function() {
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                transactionRows.forEach(row => {
+                    const text = row.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        }
+    });
+</script>
+{% endblock %}

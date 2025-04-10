@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Transparency Association\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-10 17:00+0000\n"
+"PO-Revision-Date: 2025-04-10 17:00+0000\n"
+"Last-Translator: Translator <translator@example.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Account Transparency - Association"
+msgstr "Konta Travidebleco - Asocio"
+
+msgid "Transparency Association"
+msgstr "Travidebla Asocio"
+
+msgid "Home"
+msgstr "Hejmo"
+
+msgid "Dashboard"
+msgstr "Stirpanelo"
+
+msgid "Connect bank"
+msgstr "Konekti bankon"
+
+msgid "Transparency"
+msgstr "Travidebleco"
+
+msgid "Logout"
+msgstr "Elsaluti"
+
+msgid "Login"
+msgstr "Ensaluti"
+
+msgid "Transparency Association - All rights reserved"
+msgstr "Travidebla Asocio - Ĉiuj rajtoj rezervitaj"
+
+msgid "Welcome to the Transparency Association"
+msgstr "Bonvenon al la Travidebla Asocio"
+
+msgid "Connect your bank accounts"
+msgstr "Konektu viajn bankajn kontojn"
+
+msgid "View your transactions"
+msgstr "Rigardu viajn transakciojn"
+
+msgid "Account Balance"
+msgstr "Konta Saldo"
+
+msgid "Account"
+msgstr "Konto"
+
+msgid "Date"
+msgstr "Dato"
+
+msgid "Description"
+msgstr "Priskribo"
+
+msgid "Amount"
+msgstr "Sumo"
+
+msgid "Status"
+msgstr "Stato"
+
+msgid "No transactions found"
+msgstr "Neniuj transakcioj trovitaj"
+
+msgid "Select a bank to connect"
+msgstr "Elektu bankon por konekti"
+
+msgid "Submit"
+msgstr "Sendi"
+
+msgid "Cancel"
+msgstr "Nuligi"
+
+msgid "Username"
+msgstr "Uzantnomo"
+
+msgid "Password"
+msgstr "Pasvorto"
+
+msgid "Remember me"
+msgstr "Memori min"
+
+msgid "Sign in"
+msgstr "Ensaluti"

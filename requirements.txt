@@ -1,0 +1,15 @@
+flask==3.0.3
+flask-babel==4.0.0
+flask-login==0.6.3
+flask-wtf==1.2.1
+python-dotenv==1.0.1
+Babel==2.17.0
+Werkzeug==3.0.4
+Jinja2==3.1.4
+itsdangerous==2.2.0
+nordigen==1.4.0
+WTForms==3.1.2
+blinker==1.8.2
+pytz==2025.2
+markupsafe==3.0.1
+click==8.1.7

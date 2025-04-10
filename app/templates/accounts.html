@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ _('My Accounts - Account Transparency') }}{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>{{ _('My Bank Accounts') }}</h1>
+            <a href="{{ url_for('main.dashboard') }}" class="btn btn-secondary">{{ _('Back to Dashboard') }}</a>
+        </div>
+    </div>
+</div>
+
+{% if accounts %}
+<div class="row">
+    {% for account in accounts %}
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">{{ account.name }}</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>IBAN:</strong> {{ account.iban }}</p>
+                <p><strong>{{ _('Currency') }}:</strong> {{ account.currency }}</p>
+                
+                <h6 class="mt-4">{{ _('Balances') }}</h6>
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>{{ _('Type') }}</th>
+                                <th>{{ _('Amount') }}</th>
+                                <th>{{ _('Date') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for balance in account.balances %}
+                            <tr>
+                                <td>
+                                    {% if balance.balanceType == 'closingBooked' %}
+                                        {{ _('Booked Balance') }}
+                                    {% elif balance.balanceType == 'expected' %}
+                                        {{ _('Expected Balance') }}
+                                    {% elif balance.balanceType == 'interimAvailable' %}
+                                        {{ _('Available Balance') }}
+                                    {% else %}
+                                        {{ balance.balanceType }}
+                                    {% endif %}
+                                </td>
+                                <td class="fw-bold">{{ balance.balanceAmount.amount }} {{ balance.balanceAmount.currency }}</td>
+                                <td>{{ balance.referenceDate if balance.referenceDate else 'N/A' }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('nordigen.view_transactions', account_id=account.id) }}" class="btn btn-primary">
+                    {{ _('View Transactions') }}
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="alert alert-info">
+    {{ _('No accounts found. Please connect a bank account.') }}
+</div>
+<div class="d-grid gap-2 col-md-6 mx-auto">
+    <a href="{{ url_for('nordigen.init_nordigen') }}" class="btn btn-primary">{{ _('Connect a bank account') }}</a>
+</div>
+{% endif %}
+{% endblock %}

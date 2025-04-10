@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Transparency Association\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-10 17:00+0000\n"
+"PO-Revision-Date: 2025-04-10 17:00+0000\n"
+"Last-Translator: Translator <translator@example.com>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Account Transparency - Association"
+msgstr "Transparence des Comptes - Association"
+
+msgid "Transparency Association"
+msgstr "Association de Transparence"
+
+msgid "Home"
+msgstr "Accueil"
+
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+msgid "Connect bank"
+msgstr "Connecter une banque"
+
+msgid "Transparency"
+msgstr "Transparence"
+
+msgid "Logout"
+msgstr "Déconnexion"
+
+msgid "Login"
+msgstr "Connexion"
+
+msgid "Transparency Association - All rights reserved"
+msgstr "Association de Transparence - Tous droits réservés"
+
+msgid "Welcome to the Transparency Association"
+msgstr "Bienvenue à l'Association de Transparence"
+
+msgid "Connect your bank accounts"
+msgstr "Connectez vos comptes bancaires"
+
+msgid "View your transactions"
+msgstr "Consultez vos transactions"
+
+msgid "Account Balance"
+msgstr "Solde du compte"
+
+msgid "Account"
+msgstr "Compte"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Amount"
+msgstr "Montant"
+
+msgid "Status"
+msgstr "Statut"
+
+msgid "No transactions found"
+msgstr "Aucune transaction trouvée"
+
+msgid "Select a bank to connect"
+msgstr "Sélectionnez une banque à connecter"
+
+msgid "Submit"
+msgstr "Soumettre"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Remember me"
+msgstr "Se souvenir de moi"
+
+msgid "Sign in"
+msgstr "Se connecter"
