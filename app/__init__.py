@@ -3,7 +3,8 @@ from flask import Flask, request, session
 from flask_login import LoginManager
 from dotenv import load_dotenv
 from flask_babel import Babel
-from flask_apscheduler import APScheduler
+from apscheduler.schedulers.background import BackgroundScheduler
+from app.scheduler import refresh_all_accounts_job
 
 # Initialize the authentication manager
 login_manager = LoginManager()
@@ -11,9 +12,6 @@ login_manager.login_view = 'auth.login'
 
 # Initialize Babel for internationalization
 babel = Babel()
-
-# Initialize scheduler
-scheduler = APScheduler()
 
 # Function to determine which language to use
 def get_locale():
@@ -65,10 +63,6 @@ def create_app():
         'eo': 'Esperanto'
     }
     
-    # Configure scheduler
-    app.config['SCHEDULER_API_ENABLED'] = False
-    app.config['SCHEDULER_TIMEZONE'] = "UTC"
-    
     # Initialize the login manager
     login_manager.init_app(app)
     
@@ -85,9 +79,8 @@ def create_app():
     from app.nordigen_api import nordigen_bp
     app.register_blueprint(nordigen_bp)
 
-    # Initialize and start the scheduler
-    with app.app_context():
-        from app.scheduler import init_scheduler
-        init_scheduler(app)
-
+    sched = BackgroundScheduler(daemon=True)
+    # Schedule the job to run every day at 3 AM
+    sched.add_job(refresh_all_accounts_job,'cron', hour=3, minute=42, id='refresh_all_accounts_job', replace_existing=True, args=[app])
+    sched.start()
     return app
