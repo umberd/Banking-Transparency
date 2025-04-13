@@ -4,7 +4,6 @@ This module handles background scheduled tasks for the application.
 import os
 import json
 from flask import current_app
-from flask_login import current_user
 from app.nordigen_api import get_client
 import time
 # from sqlalchemy.orm.exc import DetachedInstanceError
